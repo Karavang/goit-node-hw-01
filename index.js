@@ -9,7 +9,10 @@ const actions = async ({ action, id, name, email, phone }) => {
       return console.table(cont) || null;
     case "getByID":
       const byId = await functions.getContactById(id);
-      return console.log(byId) || null;
+      if (byId !== undefined) {
+        return console.log(byId);
+      }
+      return null;
     case "add":
       const newContact = await functions.addContact(name, email, phone);
       return console.log(newContact) || null;
