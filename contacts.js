@@ -16,7 +16,8 @@ const writeFunc = async () => {
 const getContactById = async (contactId) => {
   const list = await readFunc();
   const res = list.find((e) => e.id === contactId);
-  if (res === -1) {
+
+  if (!res) {
     return null;
   }
   return res;
